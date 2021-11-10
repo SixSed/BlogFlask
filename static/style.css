@@ -1,0 +1,271 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style-type: none;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+h1{
+  font-size: 30px;
+  color: rgba(0, 0, 0, .7);
+}
+
+input, textarea {
+  outline:none;
+}
+
+a {
+font-weight:400;
+font-size:24px;
+color: black;
+}
+
+body {
+display: flex;
+flex-direction: column;
+height: 100%;
+background-color: rgba(0, 0, 0, .1);
+}
+
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 auto;
+}
+
+.menu_cont{
+  
+padding: 10px 80px;
+height: 100%;
+justify-content: space-between;
+align-items:center;
+display: flex;
+background-color: white;
+}
+
+#logo {
+  width: 15%;
+  color:black;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.main_menu{
+width:45%;
+display:flex;
+justify-content: space-around;
+}
+
+
+.main_menu > li > a:hover{
+  transition: 0.2s;
+  color:rgb(82, 127, 248);
+}
+
+.logo_sign{
+height: 100px;
+width: 15%;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.logo_sign > a:hover{
+  transition: 0.2s;
+  color:rgb(82, 127, 248);
+}
+
+.log_btn, .sign_btn{
+height: 50%;
+width: 40%;
+}
+
+#username{
+  font-weight:400;
+  font-size:24px;
+  color: black;
+}
+
+.content{
+  text-align: center;
+  margin: 0 80px;
+  display: flex;
+  flex-direction: column; 
+}
+
+.form{
+  font-size: 24px;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.input, .textarea, .submit_btn, .delete_btn{
+  margin-top: 20px;
+  border-radius: 20px;
+  border: none;
+  resize: none;
+}
+
+.textarea {
+  padding: 30px 30px;
+  width: 600px;
+  height: 300px;
+} 
+
+.input { 
+  box-sizing: border-box;
+  padding-left: 15px;
+  height: 50px;
+  width: 600px;
+} 
+
+.submit_btn{
+  height: 50px;
+  width: 400px;
+  font-size: 20px;
+  color: white;
+  margin-top: 50px;
+  background-color: rgb(91, 168, 255);
+}
+
+.submit_btn:hover, .back_btn:hover, .update_btn:hover{
+  background-color:rgb(32, 79, 150);
+  transition: 0.2s;
+}
+
+.file_btn{
+  margin-top: 20px;
+}
+
+.input_name{
+  margin-top: 20px;
+}
+
+#tittle_reg{
+  margin-top: 40px;
+}
+
+.block_header{
+  text-align: center;
+  margin: 50px;
+}
+
+.post_wrapper{
+  display: flex;
+  flex-direction: column;
+  padding: 15px 0;
+  border-top: solid rgb(182, 182, 182) 3px;
+}
+
+
+.post_top, .post_btm, .post_com, .post, .comment,.change_cont, .user, .avatar_upd{
+  display: flex;
+}
+
+.post_top, .post{
+  justify-content: space-between;
+}
+
+.comment{
+  margin-right: 100px;
+}
+
+#com_btn {
+  font-size: 16px;
+}
+
+.post{
+  width: 50%;
+}
+
+.post_img{
+  width: 40%;
+}
+
+.post_func{
+  width: 10%;
+}
+
+.post_hdr{
+  width: 30%;
+}
+
+.post_txt{
+  word-wrap: break-word;
+  width: 70%;
+}
+
+.update_btn, .back_btn, .updated_btn{
+  padding-top: 10px;
+  color: white;
+  width: 250px;
+  height: 50px;
+  background-color: rgb(91, 168, 255);
+  border-radius: 50px;
+}
+
+.update_btn > a, .updated_btn > a{
+  color: white;
+}
+
+.updated_btn{
+  background-color: rgb(219, 68, 68);
+}
+
+.change_cont{
+  flex-wrap: wrap;
+}
+
+.user, .autor_post, .edit_cont{
+  width: 50%;
+}
+
+.user{
+  height: fit-content;
+}
+
+.edit_cont{
+  align-self:center;
+}
+
+.avatar_upd{
+
+  flex-direction: column;
+  justify-content: space-around;
+  margin-left: 100px;
+  margin-bottom: 30px;
+  padding-top: 100px;
+}
+
+.back_btn{
+  position: fixed;
+  right: 10%;
+  bottom: 10%;
+  margin-top: 40px;
+}
+
+.back_btn > a {
+  color: white;
+} 
+
+.back_btn:hover{
+
+}
+
+.delete_btn{
+  height: 50px;
+  width: 400px;
+  font-size: 20px;
+  color: white;
+  margin-top: 50px;
+  background-color: rgb(219, 68, 68);
+}
+
+.delete_btn:hover, .updated_btn:hover{
+  background-color: rgb(165, 32, 32);
+  transition: 0.2s;
+}

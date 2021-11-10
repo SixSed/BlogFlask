@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: arturlib
+Version: 0.0.1.dev2
+Summary: Small utility lib for Advent of Code and stuff
+Home-page: https://github.com/ArturLange/arturlib
+Author: Artur H. Lange
+Author-email: ArturLange@poczta.fm
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: scipy (<2,>=1.3.0)
+Requires-Dist: sympy (<3,>=1.4)
+Requires-Dist: numpy (<2,>=1.17)
+Requires-Dist: arrow (>=0.15)
+Requires-Dist: Pillow (<7,>=6)
+Provides-Extra: dev
+Requires-Dist: black ; extra == 'dev'
+Provides-Extra: test
+Requires-Dist: pytest ; extra == 'test'
+Requires-Dist: coverage ; extra == 'test'
+Requires-Dist: pytest-cov ; extra == 'test'
+
+# ArturLIB
+
+A small library with some utility functions used in Advent of Code
+and other hacking competitions/tasks.
+
+

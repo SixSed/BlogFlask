@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Редактирование "{{ post['title'] }}"{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+
+  <form class="new_post" method="post" enctype=multipart/form-data>
+    <label for="title" class="name_f">Заголовок поста</label>
+    <input class="input_f" name="title" id="title" value="{{ request.form['title'] or post['title'] }}" required>
+    <label class="name_f" for="body">Тело поста</label>
+    <textarea class="textarea_f" name="body" id="body">{{ request.form['body'] or post['body'] }}</textarea>
+    <label for="title" class="name_f">Прикрепить фотографию</label>
+    <input type=file name=file>
+    <input class="button_f" type="submit" value="Сохранить">
+  </form>
+  <hr>
+  <form action="{{ url_for('blog.delete', id=post['id']) }}" method="post">
+    <input class="danger" type="submit" value="Удалить пост" onclick="return confirm('Вы уверены?');">
+  </form>
+{% endblock %}

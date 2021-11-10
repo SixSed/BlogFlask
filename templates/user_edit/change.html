@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1 class="block_header">{% block title %}Your Profile{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <div class="change_cont">
+        <div class="user">
+            <div class="user_info">
+                <h1>User: {{user.username}}!</h1>
+                <img src="{{ g.user['avatar'] }}" width="400" height="400">
+            </div>
+            <div class="avatar_upd">
+                <div class="update_btn">
+                    <a  href="{{ url_for('change.avatar_edit') }}">Update</a>
+                </div>
+                <div class="update_btn">
+                    <a  href="{{ url_for('change.data_edit') }}">Edit</a>
+                </div>
+                <div class="updated_btn">
+                    <a  href="{{ url_for('change.user_delete') }}" background-color="red">Delete</a>
+                </div>
+            </div>
+        </div>
+        <div class="autor_post">
+            <h1>Your post</h1>
+            {% for post in posts %}
+                {% if g.user['id'] == post['author_id'] %}
+                    <div class="post_wrapper">
+                        <div class="post_top">
+                            <div class="post">
+                                <div class="post_hdr">
+                                    <img id="avatar" src="{{ post['avatar'] }}" width="200px" height="200px">
+                                    <div class="about"><span class="main">{{ post['username'] }}</span> <br> <span
+                                                class="not_main">{{ post['created'].strftime('%Y-%m-%d') }}</span>
+                                    </div>
+                                </div>
+                                <div class="post_txt">
+                                    <h1>{{ post['title'] }}</h1>
+                                    <p class="body">{{ post['body'] }}</p>
+                                </div>
+                            </div>
+
+                            {% if post['post_image']!='' %}
+                                <div class="post_img">
+                                    <img style="width:200px; height:200px;" src="{{ post['post_image'] }}">
+                                </div>
+                            {% endif %}
+                                <div class="post_func">
+                                     <a class="action post_a" href="{{ url_for('blog.update', id=post['id']) }}">Edit</a>
+                                </div>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

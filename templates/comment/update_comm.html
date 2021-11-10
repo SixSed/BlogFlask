@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Create comments:{% endblock %}
+{% block header %}
+  <h1 class="block_header">Edit your comment</h1>
+{% endblock %}
+{% block content %}
+{% for message in get_flashed_messages() %}
+  <div class="flash">{{ message }}</div>
+  {% endfor %}
+  <form class="form" method=post >
+      <label class="input_name" for="body">Something is wrong?</label>
+    <textarea class="textarea" name="body" id="body" required>{{ comment['body'] }}</textarea>
+    <input class="submit_btn" type="submit" value="Save">
+  </form>
+  <form action="{{ url_for('blog.delete_comm', id=comment['id']) }}" method="post">
+    <input class="delete_btn" type="delete_btn" value="Delete" onclick="return confirm('Are you sure?');" style="text-align:center;">
+  </form>
+{% endblock %}

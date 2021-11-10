@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %}Create comments:{% endblock %}
+{% block header %}
+  <h1 class="block_header">Your comment</h1>
+{% endblock %}
+{% block content %}
+{% for message in get_flashed_messages() %}
+  <div class="flash">{{ message }}</div>
+  {% endfor %}
+  <form class="form" method=post >
+    <label class="input_name" for="body">Bellow your comment</label>
+    <textarea class="textarea" name="body" id="body" required>{{ request.form['body'] }}</textarea>
+    <input class="submit_btn" type="submit" value="Save">
+  </form>
+
+{% endblock %}

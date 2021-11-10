@@ -1,0 +1,21 @@
+  
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1 class="block_header">{% block title %}New post{% endblock %}</h1>
+{% endblock %}
+{% block content %}
+{% for message in get_flashed_messages() %}
+  <div class="flash">{{ message }}</div>
+{% endfor %}
+  <form class="form" method=post enctype=multipart/form-data>
+    <label for="title" class="input_name">Post header</label>
+    <input class="input" name="title" id="title" value="{{ request.form['title'] }}" required>
+    <label class="input_name" for="body">Write something</label>
+    <textarea class="textarea" name="body" id="body">{{ request.form['body'] }}</textarea>
+    <label for="title" class="input_name">Add photo</label>
+    <input type=file name=file class="file_btn">
+    <input class="submit_btn" type="submit" value="Save">
+  </form>
+
+{% endblock %}

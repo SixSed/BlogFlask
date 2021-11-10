@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+<title>{% block title %}Подтверждение{% endblock %} - Flaskr</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+{% block header %}
+    <div class="vme">
+        <h1 class="block_header">Delete account:</h1>
+    </div>
+    <form method=post class="form">
+        {% for message in get_flashed_messages() %}
+            <div class="flash_2">{{ message }}</div>
+        {% endfor %}
+        <label class="input name" for="password">Password</label>
+        <input class="input" type="password" name="password" id="password" required>
+        <input class="delete_btn"type="submit" value="Delete">
+    </form>
+    <div class="back_btn">
+        <a class="delaa" href="{{ url_for('change.change', username= g.user.username) }}">Back</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1 class="block_header">Post</h1>
+{% endblock %}
+
+{% block content %}
+    {% for post in posts %}
+        <div class="post_wrapper">
+            <div class="post_top">
+                <div class="post">
+                    <div class="post_hdr">
+                        <img id="avatar" src="{{ post['avatar'] }}" width="200px" height="200px">
+                        <div class="about"><span class="main">{{ post['username'] }}</span> <br> <span
+                                    class="not_main">{{ post['created'].strftime('%Y-%m-%d') }}</span>
+                        </div>
+                    </div>
+                    <div class="post_txt">
+                        <h1>{{ post['title'] }}</h1>
+                        <p class="body">{{ post['body'] }}</p>
+                    </div>
+                </div>
+
+                {% if post['post_image']!='' %}
+                    <div class="post_img">
+                        <img style="width:200px; height:200px;" src="{{ post['post_image'] }}">
+                    </div>
+                {% endif %}
+
+                <div class="post_func">
+                    {% if g.user['id'] == post['author_id'] %}
+                        <a class="action post_a" href="{{ url_for('blog.update', id=post['id']) }}">Edit</a>
+                    {% elif g.user['id'] %}
+                        <a class="action post_a" href="{{ url_for('blog.create_comm', id=post['id']) }}">Comment</a>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="post_btm">
+                <div class="post_com">
+                    {% for comment in comments %}
+                        {% if post['id']==comment['post_id'] %}
+                            <div class="comment">
+                                <div class="po">
+                                    <div class="header_post">
+                                        <img class="photoC" src="{{ comment['image'] }}">
+                                        <div class="post_txt">
+                                            <div class="about"><span class="main"><h1>{{ comment['username'] }}</h1></span> <br> <span
+                                                    class="not_main">{{ comment['created'].strftime('%Y-%m-%d') }}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                        {% if g.user['id'] == comment['author_id'] %}
+                                        <a id="com_btn" href="{{ url_for('blog.update_comm', id=comment['id']) }}">edit comment</a>
+                                        {% endif %}
+                                </div>
+                                <div>
+                                    <p>{{ comment['body'] }}</p>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+
+
+        </div>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Upload avatar:{% endblock %}
+{% block header %}
+  <h1 class="block_header">Update avatar:</h1>
+{% endblock %}
+{% block content %}
+{% for message in get_flashed_messages() %}
+  <div class="flash">{{ message }}</div>
+  {% endfor %}
+<div class="chg_avtr">
+    <form  class="img_upload" enctype=multipart/form-data method=post>
+        <input type=file name=file>
+        <input class="sub" type=submit value=Upload>
+    </form>
+    <div class="back_btn">
+        <a class="back_btn_txt" href="{{ url_for('change.change', username= g.user.username) }}">Back</a>
+    </div>
+</div>
+{% endblock %}

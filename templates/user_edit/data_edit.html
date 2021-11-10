@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Data edit:{% endblock %}
+{% block header %}
+  <h1 class="block_header">Change your data</h1>
+{% endblock %}
+{% block content %}
+{% for message in get_flashed_messages() %}
+  <div class="flash">{{ message }}</div>
+{% endfor %}
+
+<form method=post class="form">
+ <p class="input_name">Change username:</p>
+    <input class="input" name="username" id="username" value="{{ g.user['username']}}" >
+ <p class="input_name">Change password:</p>
+    <input class="input" type="password" name="password" id="password">
+ <input class="submit_btn" type="submit" value="Save" >
+</form>
+<div class="back_btn">
+    <a class="delaaa" href="{{ url_for('change.change', username= g.user.username) }}">Back</a>
+</div>
+{% endblock %}
